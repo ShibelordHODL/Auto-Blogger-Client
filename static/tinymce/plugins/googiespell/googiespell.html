@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <script type="text/javascript" src="AJS.js"></script>
+<script type="text/javascript" src="googiespell.js"></script>
+<script type="text/javascript" src="cookiesupport.js"></script>
+
+<link href="googiespell.css" rel="stylesheet" type="text/css" />
+
+
+<head>
+<script language="javascript" src="../../tiny_mce_popup.js"></script>
+<script type="text/javascript" src="jscripts/embed.js"></script>
+<script type="text/javascript">
+tinyMCEPopup.onInit.add(function(ed) {
+	var dom = tinyMCEPopup.dom;
+	
+	url = dom.setHTML('content', ed.getContent());
+	
+			url = url.replace(/<.*?>/g,''); 
+			
+	document.getElementById('content').innerHTML=url;
+	
+//	document.write(ed.getContent());
+		
+});		
+		
+
+document.write('<base href="' + tinyMCEPopup.getWindowArg("base") + '">');
+</script>
+<title>Spell Check</title>
+</head>
+
+
+<body style="margin:0;">
+
+
+<!-- Gets filled with editor contents -->
+<center><font face="Verdana, Arial, Helvetica, sans-serif"><br>Spell Check<br> <small>(must have internet connection)</small></font><br><br>
+
+<form name="form1">
+<textarea name="description" id="content" cols="70" rows="20"></textarea> 
+
+</form>
+ </center>
+  <script type="text/javascript">
+  var googie1 = new GoogieSpell("", "https://www.google.com/tbproxy/spell?lang=");
+  googie1.decorateTextarea("content");
+</script>
+
+</body>
+</html>
